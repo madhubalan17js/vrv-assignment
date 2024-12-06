@@ -1,3 +1,26 @@
+
+### Role-Based Access Control (RBAC) System - using Backend (Node and express + Mongodb)
+ ## Overview
+This project implements a secure Authentication, Authorization, and Role-Based Access Control (RBAC) system. It ensures that users are authenticated securely, assigned roles, and granted access to resources based on their roles.
+
+### Features
+User Registration, Login, and Logout functionality.
+Role-based authorization for accessing specific endpoints or performing actions.
+Secure authentication using JWT (JSON Web Tokens).
+Password security with hashing and salting.
+Modular and scalable architecture.
+Error handling and descriptive responses for invalid actions.
+Dynamic role and permission management.
+
+### Technologies Used
+Backend: Node.js, Express.js
+Database: MongoDB (or any other database you've used)
+Authentication: JSON Web Tokens (JWT)
+Authorization: Role-Based Access Control (RBAC)
+Password Security: bcrypt
+
+### Process to check
+
 ## 1) First connect your Local Database using Mongodb compass
 
 ## 2) I am Setup PORT always 7000 thousands
