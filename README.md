@@ -50,11 +50,12 @@ This project is a robust implementation of Authentication, Authorization, and Ro
    - Create a `.env` file in the project root.  
    - Add the following variables:  
      ```env  
-     PORT=7000  
-     MONGO_URI=your_mongodb_connection_string  
-     JWT_SECRET=your_jwt_secret  
-     MAILTRAP_USERNAME=your_mailtrap_username  
-     MAILTRAP_PASSWORD=your_mailtrap_password  
+   MONGO_URI="mongodb://127.0.0.1:27017/Adv-auth"
+   PORT="7000"
+   JWT_SECRET="mysecretkey"
+   NODE_ENV="production"
+   MAILTRAP_TOKEN="cd055cac9b3a6769154b9a2eb6ce561e"
+   MAILTRAP_ENDPOINT="send.api.mailtrap.io" 
      ```  
 
 4. **Run the Server**  
