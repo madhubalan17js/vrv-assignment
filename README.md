@@ -1,25 +1,198 @@
 
-### Role-Based Access Control (RBAC) System - using Backend (Node and express + Mongodb)
- ## Overview
-This project implements a secure Authentication, Authorization, and Role-Based Access Control (RBAC) system. It ensures that users are authenticated securely, assigned roles, and granted access to resources based on their roles.
+### **Role-Based Access Control (RBAC) System**  
 
-### Features
-User Registration, Login, and Logout functionality.
-Role-based authorization for accessing specific endpoints or performing actions.
-Secure authentication using JWT (JSON Web Tokens).
-Password security with hashing and salting.
-Modular and scalable architecture.
-Error handling and descriptive responses for invalid actions.
-Dynamic role and permission management.
+This project is a robust implementation of Authentication, Authorization, and Role-Based Access Control (RBAC). It ensures secure user management, role assignment, and access control tailored to each role.  
 
-### Technologies Used
-Backend: Node.js, Express.js
-Database: MongoDB (or any other database you've used)
-Authentication: JSON Web Tokens (JWT)
-Authorization: Role-Based Access Control (RBAC)
-Password Security: bcrypt
+---
 
-### Process to check
+## **Features**  
+- **User Authentication**: Register, log in, and log out securely.  
+- **Role-Based Authorization**: Grant and restrict access to resources based on user roles.  
+- **Secure Password Management**: Hashing and salting using `bcrypt`.  
+- **Dynamic Role and Permission Management**: Easily scalable for additional roles and permissions.  
+- **Email Verification**: Secure email OTP verification for account activation.  
+- **Forgot/Reset Password**: Password recovery with token-based reset.  
+- **Scalable Architecture**: Modular code structure for future enhancements.  
+- **Error Handling**: Clear and descriptive error messages for invalid actions.  
+
+---
+
+## **Technologies Used**  
+
+### **Backend**:  
+- **Node.js** and **Express.js** for API creation and request handling.  
+- **MongoDB** for database storage and data management using **Mongoose**.  
+- **JWT (JSON Web Tokens)** for secure authentication and session management.  
+- **bcryptjs** for password hashing and comparison.  
+- **Mailtrap** for email testing (e.g., OTP and password reset).  
+- **dotenv** for environment configuration.  
+
+### **Middleware and Utilities**:  
+- **cookie-parser** for handling cookies in client-server interactions.  
+- **crypto** for generating secure tokens.  
+
+---
+
+## **Setup and Execution**  
+
+1. **Clone the Repository**  
+   ```bash  
+   git clone https://github.com/madhubalan17js/vrv-assginment.git  
+   cd vrv-assignment  
+   ```  
+
+2. **Install Dependencies**  
+   ```bash  
+   npm install  
+   ```  
+
+3. **Environment Configuration**  
+   - Create a `.env` file in the project root.  
+   - Add the following variables:  
+     ```env  
+     PORT=7000  
+     MONGO_URI=your_mongodb_connection_string  
+     JWT_SECRET=your_jwt_secret  
+     MAILTRAP_USERNAME=your_mailtrap_username  
+     MAILTRAP_PASSWORD=your_mailtrap_password  
+     ```  
+
+4. **Run the Server**  
+   ```bash  
+   npm run dev  
+   ```  
+   The server runs on `http://localhost:7000`.  
+
+5. **Connect to MongoDB**  
+   - Use MongoDB Compass or a similar tool to connect to the local database.  
+
+---
+
+## **API Workflow**  
+
+### **1. User Registration**  
+- **Endpoint**: `POST /api/auth/signup`  
+- **Body**:  
+  ```json  
+  {  
+    "email": "ktmbalan17@gmail.com",  
+    "name": "Madhu",  
+    "password": "123456",  
+    "role": "user"  
+  }  
+  ```  
+- **Response**:  
+  - On success, a verification token is generated and sent to the user's email.  
+
+---
+
+### **2. Email Verification**  
+- **Endpoint**: `POST /api/auth/verify-email`  
+- **Body**:  
+  ```json  
+  {  
+    "code": "872257"  
+  }  
+  ```  
+- **Response**:  
+  - Confirms email verification and updates user status.  
+
+---
+
+### **3. Login**  
+- **Endpoint**: `POST /api/auth/login`  
+- **Body**:  
+  ```json  
+  {  
+    "email": "ktmbalan17@gmail.com",  
+    "password": "123456"  
+  }  
+  ```  
+- **Response**:  
+  - Returns a token to access protected routes.  
+
+---
+
+### **4. Check Authentication**  
+- **Endpoint**: `GET /api/auth/check-auth`  
+- **Response**:  
+  - Confirms if the user is authenticated or returns an "Unauthorized" error.  
+
+---
+
+### **5. Logout**  
+- **Endpoint**: `POST /api/auth/logout`  
+- **Response**:  
+  - Clears user session and logs out successfully.  
+
+---
+
+### **6. Forgot Password**  
+- **Endpoint**: `POST /api/auth/forgot-password`  
+- **Body**:  
+  ```json  
+  {  
+    "email": "ktmbalan17@gmail.com"  
+  }  
+  ```  
+- **Response**:  
+  - Sends a password reset token to the email.  
+
+---
+
+### **7. Reset Password**  
+- **Endpoint**: `POST /api/auth/reset-password/:resetToken`  
+- **Body**:  
+  ```json  
+  {  
+    "password": "654321"  
+  }  
+  ```  
+- **Response**:  
+  - Updates the password securely.  
+
+---
+
+## **Code Highlights**  
+
+### **bcryptjs**  
+- **Purpose**: Secure password hashing and comparison.  
+
+### **crypto**  
+- **Purpose**: Generates unique, secure tokens (e.g., for password resets).  
+
+### **jsonwebtoken**  
+- **Purpose**: Token-based authentication and session management.  
+
+### **dotenv**  
+- **Purpose**: Environment variable management for sensitive information.  
+
+### **mongoose**  
+- **Purpose**: Seamless MongoDB interaction using schemas and models.  
+
+---
+
+## **Error Handling**  
+- Descriptive HTTP responses for each action.  
+- Comprehensive status codes for debugging and transparency.  
+
+---
+
+## **Future Scope**  
+- Add multi-factor authentication (MFA).  
+- Extend to include advanced audit logs for user activity.  
+- Implement a front-end for user interaction.  
+
+---
+
+## **Contact**  
+For queries or suggestions:  
+- **Name**: Madhu Balan  
+- **Email**: madhubalan1247@gmail.com  
+- **Mobile**: +91-9025447636  
+- **LinkedIn**: [Madhu Balan](https://www.linkedin.com/in/madhu-balan-js)  
+
+### Below this is my checking results of this Project Testing results
 
 ## 1) First connect your Local Database using Mongodb compass
 
